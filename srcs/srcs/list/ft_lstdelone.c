@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdavid <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mdavid <mdavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/15 11:13:18 by mdavid            #+#    #+#             */
-/*   Updated: 2019/04/26 11:43:48 by mdavid           ###   ########.fr       */
+/*   Created: 2019/04/23 17:06:52 by mdavid            #+#    #+#             */
+/*   Updated: 2019/06/26 15:04:22 by mdavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-void	ft_strdel(char **as)
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
-	if (as)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	(del)((*alst)->cnt, (*alst)->cnt_s);
+	free(*alst);
+	*alst = NULL;
 }

@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_str_isnumber.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdavid <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mdavid <mdavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 17:20:32 by mdavid            #+#    #+#             */
-/*   Updated: 2019/04/26 11:49:46 by mdavid           ###   ########.fr       */
+/*   Created: 2020/07/09 17:10:19 by mdavid            #+#    #+#             */
+/*   Updated: 2020/07/09 17:14:00 by mdavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *str)
+/*
+** Function: ft_str_isnumber
+** Description:
+**	Function checks if the 
+**
+*/
+
+int		ft_str_isnumber(char *str)
 {
-	size_t			i;
-	size_t			len;
-	char			*strcp;
+	int		i;
 
 	i = 0;
-	len = ft_strlen(str);
-	if (!(strcp = (char*)malloc(sizeof(char) * (len + 1))))
+	if (!str || !(*str))
 		return (0);
-	while (i <= len)
+	while (str[i])
 	{
-		strcp[i] = str[i];
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
 		i++;
 	}
-	return (strcp);
+	return (1);
 }

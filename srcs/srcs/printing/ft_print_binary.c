@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_print_binary.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdavid <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mdavid <mdavid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 10:53:18 by mdavid            #+#    #+#             */
-/*   Updated: 2019/04/24 17:22:55 by mdavid           ###   ########.fr       */
+/*   Created: 2020/07/14 17:09:22 by mdavid            #+#    #+#             */
+/*   Updated: 2020/07/14 17:25:01 by mdavid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+/*
+** Function: ft_print_binary
+** Description:
+**	Prints the binary value of the integer received in parameter.
+*/
+
+void	ft_print_binary(int nb)
 {
-	new->next = &(**alst);
-	*alst = &(*new);
+	if (nb)
+	{
+		ft_print_binary(nb >>= 1);
+		ft_putnbr(nb & 1);
+	}
 }
